@@ -23,8 +23,8 @@ export default class SearchBar extends React.Component {
     return (
       <form onSubmit={this.mySubmitHandler}>
       <h3>Hello {this.state.searchPhrase}</h3>
-      <div class="section-container search-bar">
-        <div class="bubble-container">
+      <div className="section-container search-bar">
+        <div className="bubble-container">
             <input id='searchInput' type='text' placeholder="Search..."/>
         </div>
       </div>
