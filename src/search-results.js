@@ -1,12 +1,13 @@
 import {serpstack} from "./api_credentials";
-function getResults(){
+
+function getSerp(query){
   const axios = require('axios');
   const params = {
     access_key: serpstack.access_key,
-    query: 'abortions'
+    query: query
   }
 
-  var search_string = "http://api.serpstack.com/search?access_key="+params.access_key+"&query="+params.query;
+  var search_string = "http://api.serpstack.com/search?access_key="+serpstack.access_key+"&query="+query;
 
   axios.get(search_string, {params})
     .then(response => {
@@ -19,4 +20,4 @@ function getResults(){
     });
 }
 
-export default getResults;
+export { getSerp };

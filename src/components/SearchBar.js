@@ -1,11 +1,13 @@
 import React from 'react';
 import '../App.css';
 
+import { getSerp } from '../search-results';
 
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchPhrase: this.props.searchPhrase };
+    this.state = '';
+    // this.state = { searchPhrase: this.props.searchPhrase };
   }
   mySubmitHandler = (event) => {
     event.preventDefault();
@@ -13,8 +15,9 @@ export default class SearchBar extends React.Component {
     var inputVal = document.getElementById("searchInput").value;
     this.setState({searchPhrase: inputVal}); // change to make App.js set state
     alert("You are submitting " + inputVal); // test
-
+    console.log(this.state.searchPhrase); // FIX state is not updated
     // passing search phrase to search results
+    // getSerp(this.state.searchPhrase);
   }
   // myChangeHandler = (event) => {
   //   this.setState({username: event.target.value});

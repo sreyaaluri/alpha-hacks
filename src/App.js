@@ -6,8 +6,6 @@ import SearchBar from './components/SearchBar';
 import TrendingTopics from './components/TrendingTopics';
 import SearchResults from './components/SearchResults';
 
-import searchResults from './search-results';
-
 export default class App extends React.Component{
   constructor(props) {
     super(props);
@@ -21,7 +19,6 @@ export default class App extends React.Component{
   }
 
   render(){
-    searchResults();
     return(
         <div className="App container">
         <SearchBar />
