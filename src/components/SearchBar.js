@@ -1,32 +1,34 @@
 import React from 'react';
+import '../App.css';
 
-class SearchBar extends React.Component {
+
+export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '' };
+    this.state = { searchPhrase: this.props.searchPhrase };
   }
   mySubmitHandler = (event) => {
     event.preventDefault();
-    alert("You are submitting " + this.state.username);
+    // getting search phrase from input
+    var inputVal = document.getElementById("searchInput").value;
+    this.setState({searchPhrase: inputVal}); // change to make App.js set state
+    alert("You are submitting " + inputVal); // test
+
+    // passing search phrase to search results
   }
-  myChangeHandler = (event) => {
-    this.setState({username: event.target.value});
-  }
+  // myChangeHandler = (event) => {
+  //   this.setState({username: event.target.value});
+  // }
   render() {
     return (
       <form onSubmit={this.mySubmitHandler}>
-      <h1>Hello {this.state.username}</h1>
-      <p>Enter your name, and submit:</p>
-      <input
-        type='text'
-        onChange={this.myChangeHandler}
-      />
-      <input
-        type='submit'
-      />
+      <h3>Hello {this.state.searchPhrase}</h3>
+      <div class="section-container search-bar">
+        <div class="bubble-container">
+            <input id='searchInput' type='text' placeholder="Search..."/>
+        </div>
+      </div>
       </form>
     );
   }
 }
-
-export default SearchBar;
